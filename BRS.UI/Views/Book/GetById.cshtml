@@ -1,0 +1,52 @@
+﻿@model Book
+
+<h1 class="gradient-text">Book</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr class="gradient-table-head">
+            <th>
+                Id
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Publisher
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Update | Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="gradient-table-body">
+            <td>
+                @Model.Id
+            </td>
+            <td>
+                @Model.Title
+            </td>
+            <td>
+                @Model.Category.Name
+            </td>
+            <td>
+                @Model.Publisher.Name
+            </td>
+            <td>
+                @Model.Author.Name
+            </td>
+            <td>
+                <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Update</a>
+                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a asp-action="GetList" class="btn btn-primary"><i class="bi bi-arrow-return-left"></i> Back to List</a>

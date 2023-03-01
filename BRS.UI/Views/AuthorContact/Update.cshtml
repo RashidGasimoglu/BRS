@@ -1,0 +1,39 @@
+﻿@model AuthorContact
+
+@{ ViewData["Title"] = "Update Author Contact"; }
+
+<h1 class="gradient-text">Update Author Contact</h1>
+
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="UpdateAuthorContact">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            @if (!string.IsNullOrWhiteSpace(ViewBag.Error))
+            {
+                <div class="form-group">
+                    @ViewBag.Error
+                </div>
+            }
+            <div class="form-group">
+                <label class="control-label">Author</label>
+                <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.Author"> </select>
+                <span asp-validation-for="AuthorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContactNumber" class="control-label"></label>
+                <input asp-for="ContactNumber" class="form-control" />
+                <span asp-validation-for="ContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success mr-1"><i class="bi bi-pencil-square"></i> Save</button>
+                <a asp-action="GetList" class="btn btn-primary"><i class="bi bi-arrow-return-left"></i> Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
